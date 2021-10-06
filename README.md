@@ -55,6 +55,7 @@ Acceptable params:
 * queryInterval = (int)i // tick interval for RDFox SR extension
 
 engine, start and end dates are  mandatory.
+Example for commandline execution: java -jar CityBench.jar engine=rdfox startDate=2014-08-11T11:00:00 endDate=2014-08-31T11:00:00 query=Q1.txt duration=600s queryDuplicates=1 frequency=2 rdfoxLicense=./<RDFoxLicenseFile> queryInterval=650
 
 ## Notice for C-SPARQL tests
 Some C-sparql queries needs loading static knowledge bases, those queries contains clauses like " FROM <http://127.0.0.1:9000/WebGlCity/RDF/SensorRepository.rdf> ".
