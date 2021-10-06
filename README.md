@@ -26,8 +26,8 @@ CityBench is a java-based benchmarking toolset for RSP engines, currently CQELS,
 1. Download all resources and source code
 2. Provide 'CQELS_DB' folder if you want to run CQELS experiments
 3. Provide static data for queries (e.g. via Apache Web Server)
-4. Import to your Java IDE and run CityBench.java
-5. Integrate JRDFox.jar into project in order to resolve the Dependencies
+4. Integrate JRDFox.jar into project in order to resolve the Dependencies
+5. Import to your Java IDE and run CityBench.java
 
 ## Configuration file
 * dataset = dataset/[your_sensor_repository_file]  // tell CityBench where to look for static background knowledge.
