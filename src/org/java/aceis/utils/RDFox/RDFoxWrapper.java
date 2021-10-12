@@ -108,6 +108,10 @@ public class RDFoxWrapper {
                 }
             }
 
+            if(queryInterval == 0) {
+                queryInterval = namedStreams.stream().mapToInt(c -> c.stepSizeInMilliSeconds).min().orElse(1000);
+            }
+
             newQuery += beginning;
             re.put(queryId, new NamedQuery(newQuery, staticStreams, namedStreams, queryInterval));
         }

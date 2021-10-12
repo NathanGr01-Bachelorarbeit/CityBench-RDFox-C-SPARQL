@@ -79,7 +79,7 @@ public class CityBench {
 	int queryDuplicates = 1;
 	private Map<String, String> queryMap = new HashMap<String, String>();
 	private String rdfoxLicenseKey = "";
-	private int queryInterval = 650;
+	private int queryInterval = 0;
 
 	// public Map<String, String> getQueryMap() {
 	// return queryMap;

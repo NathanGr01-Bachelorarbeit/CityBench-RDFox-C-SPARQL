@@ -180,7 +180,7 @@ public class PerformanceMonitor implements Runnable {
 						ComponentInfo ci = dCon.getComponentInfo(true);
 						serverSize = Double.valueOf ((Long) ci.getPropertyValues().get("Aggregate size")) / 1024.0 / 1024.0;
 						usedMB += serverSize;
-						logger.info("Aggregate size: " + ci.getPropertyValues().get("Aggregate size") + ", Aggregate number of entries: " + ci.getPropertyValues().get("Aggregate number of entries") + ", Bytes per entry: " + ci.getPropertyValues().get("Bytes per entry"));
+						logger.info("Aggregate size: " + ci.getPropertyValues().get("Aggregate size") + ", Aggregate number of entries: " + ci.getPropertyValues().get("Aggregate number of entries") + ", Bytes per entry: " + ci.getPropertyValues().get("Bytes per entry") + ", Aggregate number of IDB facts: " + ci.getPropertyValues().get("Aggregate number of IDB facts") + ", Aggregate number of EDB facts: " + ci.getPropertyValues().get("Aggregate number of EDB facts"));
 					}
 					/*if(serverSize > 25) {
 						RDFoxWrapper.getRDFoxWrapper().createNewDatastore();
