@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="ISWC2015-CityBench:jar" />
+    </artifacts-to-build>
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="4049ee82-eeca-41be-8dd8-a38ff5b62afc" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/org/java/aceis/utils/RDFox/DatastoreBatchUpdater.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CQELS_DB/cache/00000000.jdb" beforeDir="false" afterPath="$PROJECT_DIR$/CQELS_DB/cache/00000000.jdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CQELS_DB/datasets/GOSP.dat" beforeDir="false" afterPath="$PROJECT_DIR$/CQELS_DB/datasets/GOSP.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CQELS_DB/datasets/GOSP.idn" beforeDir="false" afterPath="$PROJECT_DIR$/CQELS_DB/datasets/GOSP.idn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CQELS_DB/datasets/GPOS.dat" beforeDir="false" afterPath="$PROJECT_DIR$/CQELS_DB/datasets/GPOS.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CQELS_DB/datasets/GPOS.idn" beforeDir="false" afterPath="$PROJECT_DIR$/CQELS_DB/datasets/GPOS.idn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CQELS_DB/datasets/GSPO.dat" beforeDir="false" afterPath="$PROJECT_DIR$/CQELS_DB/datasets/GSPO.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CQELS_DB/datasets/GSPO.idn" beforeDir="false" afterPath="$PROJECT_DIR$/CQELS_DB/datasets/GSPO.idn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CQELS_DB/datasets/OSP.dat" beforeDir="false" afterPath="$PROJECT_DIR$/CQELS_DB/datasets/OSP.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CQELS_DB/datasets/OSP.idn" beforeDir="false" afterPath="$PROJECT_DIR$/CQELS_DB/datasets/OSP.idn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CQELS_DB/datasets/OSPG.dat" beforeDir="false" afterPath="$PROJECT_DIR$/CQELS_DB/datasets/OSPG.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CQELS_DB/datasets/OSPG.idn" beforeDir="false" afterPath="$PROJECT_DIR$/CQELS_DB/datasets/OSPG.idn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CQELS_DB/datasets/POS.dat" beforeDir="false" afterPath="$PROJECT_DIR$/CQELS_DB/datasets/POS.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CQELS_DB/datasets/POS.idn" beforeDir="false" afterPath="$PROJECT_DIR$/CQELS_DB/datasets/POS.idn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CQELS_DB/datasets/POSG.dat" beforeDir="false" afterPath="$PROJECT_DIR$/CQELS_DB/datasets/POSG.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CQELS_DB/datasets/POSG.idn" beforeDir="false" afterPath="$PROJECT_DIR$/CQELS_DB/datasets/POSG.idn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CQELS_DB/datasets/SPO.dat" beforeDir="false" afterPath="$PROJECT_DIR$/CQELS_DB/datasets/SPO.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CQELS_DB/datasets/SPO.idn" beforeDir="false" afterPath="$PROJECT_DIR$/CQELS_DB/datasets/SPO.idn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CQELS_DB/datasets/SPOG.dat" beforeDir="false" afterPath="$PROJECT_DIR$/CQELS_DB/datasets/SPOG.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CQELS_DB/datasets/SPOG.idn" beforeDir="false" afterPath="$PROJECT_DIR$/CQELS_DB/datasets/SPOG.idn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CQELS_DB/datasets/node2id.dat" beforeDir="false" afterPath="$PROJECT_DIR$/CQELS_DB/datasets/node2id.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CQELS_DB/datasets/node2id.idn" beforeDir="false" afterPath="$PROJECT_DIR$/CQELS_DB/datasets/node2id.idn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CQELS_DB/datasets/nodes.dat" beforeDir="false" afterPath="$PROJECT_DIR$/CQELS_DB/datasets/nodes.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment_scripts/RDFox/RDFox_Q10_MulStr_15ms.sh" beforeDir="false" afterPath="$PROJECT_DIR$/experiment_scripts/RDFox/RDFox_Q10_MulStr_15ms.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment_scripts/RDFox/RDFox_Q10_MulStr_650ms.sh" beforeDir="false" afterPath="$PROJECT_DIR$/experiment_scripts/RDFox/RDFox_Q10_MulStr_650ms.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment_scripts/RDFox/RDFox_Q1_ConQue_15ms.sh" beforeDir="false" afterPath="$PROJECT_DIR$/experiment_scripts/RDFox/RDFox_Q1_ConQue_15ms.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment_scripts/RDFox/RDFox_Q1_ConQue_650ms.sh" beforeDir="false" afterPath="$PROJECT_DIR$/experiment_scripts/RDFox/RDFox_Q1_ConQue_650ms.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment_scripts/RDFox/RDFox_Q5_ConQue_15ms.sh" beforeDir="false" afterPath="$PROJECT_DIR$/experiment_scripts/RDFox/RDFox_Q5_ConQue_15ms.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment_scripts/RDFox/RDFox_Q5_ConQue_650ms.sh" beforeDir="false" afterPath="$PROJECT_DIR$/experiment_scripts/RDFox/RDFox_Q5_ConQue_650ms.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/java/aceis/io/streams/rdfox/RDFoxAarhusParkingStream.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/java/aceis/io/streams/rdfox/RDFoxAarhusParkingStream.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/java/aceis/io/streams/rdfox/RDFoxAarhusPollutionStream.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/java/aceis/io/streams/rdfox/RDFoxAarhusPollutionStream.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/java/aceis/io/streams/rdfox/RDFoxAarhusTrafficStream.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/java/aceis/io/streams/rdfox/RDFoxAarhusTrafficStream.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/java/aceis/io/streams/rdfox/RDFoxAarhusWeatherStream.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/java/aceis/io/streams/rdfox/RDFoxAarhusWeatherStream.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/java/aceis/io/streams/rdfox/RDFoxLocationStream.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/java/aceis/io/streams/rdfox/RDFoxLocationStream.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/java/aceis/io/streams/rdfox/RDFoxResultObserver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/java/aceis/io/streams/rdfox/RDFoxResultObserver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/java/aceis/utils/RDFox/NamedQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/java/aceis/utils/RDFox/NamedQuery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/java/aceis/utils/RDFox/NamedStream.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/java/aceis/utils/RDFox/NamedStream.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/java/aceis/utils/RDFox/RDFoxWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/java/aceis/utils/RDFox/RDFoxWrapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/java/aceis/utils/test/PerformanceMonitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/java/aceis/utils/test/PerformanceMonitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/java/citybench/main/CityBench.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/java/citybench/main/CityBench.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/start.sh" beforeDir="false" afterPath="$PROJECT_DIR$/start.sh" afterDir="false" />
+    </list>
+    <list id="3111f594-4d01-457d-a21a-5e2bb33f89de" name="Changes by nikol" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/org/java/citybench/main/CityBench.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/citybench.properties" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/org/java/aceis/utils/test/PerformanceMonitor.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="ProjectId" id="1sLCN2HJlfYFt09Ro1FSzR3ouuI" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/rdfox_query" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/rdfox_query" />
+      <recent name="$PROJECT_DIR$/src/org/insight_centre/aceis/io/streams/rdfox" />
+      <recent name="$PROJECT_DIR$/src/org/insight_centre/aceis/io/streams/yasper" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.insight_centre.aceis.io.streams.rdfox" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.CityBench">
+    <configuration name="CityBench" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.java.citybench.main.CityBench" />
+      <module name="ISWC2015-CityBench" />
+      <option name="PROGRAM_PARAMETERS" value="engine=rdfox startDate=2014-08-11T11:00:00 endDate=2014-08-31T11:00:00 query=Q10_8.txt duration=120s queryDuplicates=1 frequency=2 rdfoxLicense=./RDFox.lic queryInterval=15" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.java.citybench.main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestCSV" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.java.aceis.utils.test.TestCSV" />
+      <module name="ISWC2015-CityBench" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.java.aceis.utils.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.CityBench" />
+      <item itemvalue="Application.TestCSV" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.CityBench" />
+        <item itemvalue="Application.TestCSV" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4049ee82-eeca-41be-8dd8-a38ff5b62afc" name="Default Changelist" comment="" />
+      <created>1620642438853</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1620642438853</updated>
+      <workItem from="1620642440934" duration="2781000" />
+      <workItem from="1620648523530" duration="920000" />
+      <workItem from="1621149263809" duration="814000" />
+      <workItem from="1621151522585" duration="865000" />
+      <workItem from="1621157507262" duration="1203000" />
+      <workItem from="1621168673878" duration="4695000" />
+      <workItem from="1621236334016" duration="6559000" />
+      <workItem from="1621243694230" duration="10365000" />
+      <workItem from="1621320695698" duration="12199000" />
+      <workItem from="1621348136032" duration="3450000" />
+      <workItem from="1621407636506" duration="3247000" />
+      <workItem from="1621850366219" duration="11000" />
+      <workItem from="1621868861487" duration="448000" />
+      <workItem from="1622018902229" duration="18143000" />
+      <workItem from="1622100095399" duration="6376000" />
+      <workItem from="1622370907726" duration="689000" />
+      <workItem from="1622448847248" duration="11036000" />
+      <workItem from="1622490861242" duration="5278000" />
+      <workItem from="1622530183146" duration="10203000" />
+      <workItem from="1622540823922" duration="173000" />
+      <workItem from="1622541023688" duration="3373000" />
+      <workItem from="1622551998763" duration="1127000" />
+      <workItem from="1622553458115" duration="1027000" />
+      <workItem from="1622630599889" duration="1389000" />
+      <workItem from="1622834121344" duration="1275000" />
+      <workItem from="1622877370572" duration="1219000" />
+      <workItem from="1622963212181" duration="803000" />
+      <workItem from="1622964038295" duration="4957000" />
+      <workItem from="1622972582702" duration="1867000" />
+      <workItem from="1622974785769" duration="3064000" />
+      <workItem from="1623052158556" duration="21000" />
+      <workItem from="1623149812589" duration="1143000" />
+      <workItem from="1623151098215" duration="3199000" />
+      <workItem from="1623161674293" duration="888000" />
+      <workItem from="1623171773061" duration="12632000" />
+      <workItem from="1623220421948" duration="3703000" />
+      <workItem from="1623394942941" duration="5990000" />
+      <workItem from="1623402786130" duration="2657000" />
+      <workItem from="1623405690819" duration="598000" />
+      <workItem from="1623409637121" duration="2043000" />
+      <workItem from="1623412246973" duration="2133000" />
+      <workItem from="1623414740876" duration="1564000" />
+      <workItem from="1623700075747" duration="746000" />
+      <workItem from="1623701236598" duration="2509000" />
+      <workItem from="1623708393446" duration="1267000" />
+      <workItem from="1623919215334" duration="1266000" />
+      <workItem from="1624273158433" duration="6510000" />
+      <workItem from="1624347731155" duration="7751000" />
+      <workItem from="1624432878746" duration="1463000" />
+      <workItem from="1624957846815" duration="5956000" />
+      <workItem from="1625035902940" duration="1308000" />
+      <workItem from="1625301215723" duration="1580000" />
+      <workItem from="1625394102389" duration="3709000" />
+      <workItem from="1625418724486" duration="3865000" />
+      <workItem from="1625486720987" duration="808000" />
+      <workItem from="1625496533752" duration="600000" />
+      <workItem from="1625555348837" duration="1228000" />
+      <workItem from="1625578049013" duration="307000" />
+      <workItem from="1625686283216" duration="25000" />
+      <workItem from="1626425486819" duration="7524000" />
+      <workItem from="1627990742517" duration="2430000" />
+      <workItem from="1627993202395" duration="6379000" />
+      <workItem from="1628060485082" duration="3300000" />
+      <workItem from="1630407607576" duration="8732000" />
+      <workItem from="1630478152666" duration="439000" />
+      <workItem from="1630573553908" duration="1738000" />
+      <workItem from="1630661731153" duration="1547000" />
+      <workItem from="1630664119482" duration="1847000" />
+      <workItem from="1631011279511" duration="619000" />
+      <workItem from="1631034403116" duration="689000" />
+      <workItem from="1631628250787" duration="3149000" />
+      <workItem from="1631636122868" duration="3771000" />
+      <workItem from="1631716843038" duration="812000" />
+      <workItem from="1631718219685" duration="666000" />
+      <workItem from="1631885123652" duration="10352000" />
+      <workItem from="1632063219031" duration="429000" />
+      <workItem from="1632081929491" duration="757000" />
+      <workItem from="1632119612402" duration="436000" />
+      <workItem from="1632123451311" duration="2505000" />
+      <workItem from="1632169604395" duration="23000" />
+      <workItem from="1632228242297" duration="1582000" />
+      <workItem from="1632230702610" duration="59000" />
+      <workItem from="1632396612041" duration="3291000" />
+      <workItem from="1632410191999" duration="6642000" />
+      <workItem from="1632472643818" duration="3516000" />
+      <workItem from="1632492098367" duration="621000" />
+      <workItem from="1632640151028" duration="104000" />
+      <workItem from="1632730335626" duration="881000" />
+      <workItem from="1632777261022" duration="1264000" />
+      <workItem from="1632814474702" duration="2753000" />
+      <workItem from="1632924340395" duration="210000" />
+      <workItem from="1632996366287" duration="6651000" />
+      <workItem from="1633086447465" duration="16000" />
+      <workItem from="1633424400850" duration="869000" />
+      <workItem from="1633426623937" duration="468000" />
+      <workItem from="1633427118120" duration="1798000" />
+      <workItem from="1633462015062" duration="175000" />
+      <workItem from="1633509627434" duration="181000" />
+      <workItem from="1633526700814" duration="1420000" />
+      <workItem from="1634023966740" duration="19000" />
+      <workItem from="1634027184670" duration="880000" />
+      <workItem from="1634042549126" duration="980000" />
+      <workItem from="1634056633379" duration="24000" />
+      <workItem from="1634107737210" duration="19192000" />
+      <workItem from="1634138679593" duration="2650000" />
+      <workItem from="1634148130406" duration="376000" />
+      <workItem from="1634199379189" duration="9658000" />
+    </task>
+    <task id="LOCAL-00001" summary="Added new Files for Yasper and RDFox. Still WiP">
+      <created>1621240027699</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1621240027699</updated>
+    </task>
+    <task id="LOCAL-00002" summary="RDFox running but not yet connected to the engine.">
+      <created>1621266529669</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1621266529669</updated>
+    </task>
+    <task id="LOCAL-00003" summary="RDFox integrated and running just the Resultintegration and Stream-Adaption is still missing. ToDo: Looking why no engines produces correct csv-Output yet and afterward just measuring :D">
+      <created>1621411891100</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1621411891100</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Measuring for RDFox is working but it seems a little inefficient.">
+      <created>1622370977645</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1622370977645</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Ein Fehler ist noch drinnen.">
+      <created>1622491703433</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1622491703433</updated>
+    </task>
+    <task id="LOCAL-00006" summary="RDFox working and all Queries adapted but not tested yet.">
+      <created>1622533659428</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1622533659428</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Every RDFox Queue working.">
+      <created>1623181280179</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1623181280179</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Starting to uncomment YASPER stuff.">
+      <created>1623412505672</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1623412505672</updated>
+    </task>
+    <task id="LOCAL-00009" summary="YASPER not working.">
+      <created>1623413779640</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1623413779640</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Added new Files for Yasper and RDFox. Still WiP" />
+    <MESSAGE value="RDFox running but not yet connected to the engine." />
+    <MESSAGE value="RDFox integrated and running just the Resultintegration and Stream-Adaption is still missing. ToDo: Looking why no engines produces correct csv-Output yet and afterward just measuring :D" />
+    <MESSAGE value="Measuring for RDFox is working but it seems a little inefficient." />
+    <MESSAGE value="Ein Fehler ist noch drinnen." />
+    <MESSAGE value="RDFox working and all Queries adapted but not tested yet." />
+    <MESSAGE value="Every RDFox Queue working." />
+    <MESSAGE value="Starting to uncomment YASPER stuff." />
+    <MESSAGE value="YASPER not working." />
+    <option name="LAST_COMMIT_MESSAGE" value="YASPER not working." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/org/java/aceis/utils/RDFox/NamedStream.java</url>
+          <line>64</line>
+          <properties class="org.java.aceis.utils.RDFox.NamedStream" method="flushIfNecessary">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
