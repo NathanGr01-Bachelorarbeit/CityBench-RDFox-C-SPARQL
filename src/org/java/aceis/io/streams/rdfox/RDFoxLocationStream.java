@@ -65,6 +65,7 @@ public class RDFoxLocationStream extends RDFoxSensorStream implements Runnable {
 
 						}
 					}
+					RDFoxWrapper.getRDFoxWrapper().flushIfNecessary(getIRI());
 					CityBench.pm.addNumberOfStreamedStatements(stmts.size());
 					// this.messageCnt += 1;
 					// this.byteCnt += messageByte;

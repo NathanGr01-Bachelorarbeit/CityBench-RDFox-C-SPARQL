@@ -180,11 +180,14 @@ public class PerformanceMonitor implements Runnable {
 						ComponentInfo ci = dCon.getComponentInfo(true);
 						serverSize = Double.valueOf ((Long) ci.getPropertyValues().get("Aggregate size")) / 1024.0 / 1024.0;
 						usedMB += serverSize;
+						/*for(String s : ci.getPropertyValues().keySet()) {
+							logger.info("	" + s + ": " + ci.getPropertyValues().get(s));
+						}*/
 						logger.info("Aggregate size: " + ci.getPropertyValues().get("Aggregate size") + ", Aggregate number of entries: " + ci.getPropertyValues().get("Aggregate number of entries") + ", Bytes per entry: " + ci.getPropertyValues().get("Bytes per entry") + ", Aggregate number of IDB facts: " + ci.getPropertyValues().get("Aggregate number of IDB facts") + ", Aggregate number of EDB facts: " + ci.getPropertyValues().get("Aggregate number of EDB facts"));
 					}
-					/*if(serverSize > 25) {
-						RDFoxWrapper.getRDFoxWrapper().createNewDatastore();
-					}*/
+					if(serverSize > 15) {
+						//RDFoxWrapper.getRDFoxWrapper().createNewDatastore();
+					}
 				}
 				// double overhead = (obMapBytes + listerObIdListBytes + listenerResultListBytes) / 1024.0 / 1024.0;
 				this.memoryList.add(usedMB);
@@ -194,6 +197,7 @@ public class PerformanceMonitor implements Runnable {
 				System.out.println(("Current performance: L - " + currentLatency + ", Cnt: " + this.resultCntMap + ", Mem - "
 						+ usedMB + ", ObIds - " + currentObIds + ", Completeness: " + (CityBench.obMap.size() != 0 ? (float)currentObIds/CityBench.obMap.size() : 0)
 						+ ", Current Throughput: " + (streamedStatementsPerSecond.size() > 0 ? streamedStatementsPerSecond.stream().mapToLong(c -> c).average().getAsDouble() : 0)));
+				//System.out.println(latencyMap.toString());
 				Thread.sleep(5000);
 
 			} catch (InterruptedException e) {

@@ -12,6 +12,7 @@ import org.java.aceis.io.streams.cqels.*;
 import org.java.aceis.io.streams.csparql.*;
 import org.java.aceis.io.streams.rdfox.*;
 import org.java.aceis.observations.SensorObservation;
+import org.java.aceis.utils.RDFox.DatastoreBatchUpdater;
 import org.java.aceis.utils.RDFox.RDFoxWrapper;
 import org.java.aceis.utils.test.PerformanceMonitor;
 import org.slf4j.Logger;
@@ -283,10 +284,11 @@ public class CityBench {
 
 	private void initRDFox() throws Exception {
 		try {
-			rdFoxWrapper = RDFoxWrapper.getRDFoxWrapper(queryMap, rdfoxLicenseKey, queryInterval);
+			rdFoxWrapper = RDFoxWrapper.getRDFoxWrapper(queryMap, rdfoxLicenseKey, queryInterval * queryDuplicates, queryDuplicates);
 			pm.setSCon(rdFoxWrapper.getServerConnection());
 			for (int i = 0; i < this.queryDuplicates; i++)
-				this.registerRDFoxQueries();
+				this.registerRDFoxQueries(i);
+			new Thread(new DatastoreBatchUpdater(RDFoxWrapper.getRDFoxWrapper())).start();
 			this.startRDFoxStreams();
 		}
 		catch (Exception e) {
@@ -360,7 +362,6 @@ public class CityBench {
 			cs.register(crl);
 			registeredQueries.put(qid, crl);
 		}
-
 	}
 
 	private void registerCSPARQLQueries() throws ParseException {
@@ -384,18 +385,18 @@ public class CityBench {
 		}
 	}
 
-	private void registerRDFoxQueries() throws ParseException {
+	private void registerRDFoxQueries(int i) {
 		for (Entry en : this.queryMap.entrySet()) {
 			String qid = en.getKey() + "-" + UUID.randomUUID();
-			registerRDFoxQuery(qid);
+			registerRDFoxQuery(qid, i);
 		}
 	}
 
-	private void registerRDFoxQuery(String qid) throws ParseException {
+	private void registerRDFoxQuery(String qid, int i) {
 		if (!registeredQueries.keySet().contains(qid)) {
 			RDFoxResultObserver rro = new RDFoxResultObserver(qid, qid.split("-")[0]);
 			RDFoxWrapper.getRDFoxWrapper().rdFoxResultObserver = rro;
-			RDFoxWrapper.getRDFoxWrapper().registerQueries(rro);
+			RDFoxWrapper.getRDFoxWrapper().registerQueries(rro, i);
 			logger.info("Registering result observer: " + rro.getIRI());
 			registeredQueries.put(qid, rro);
 		}

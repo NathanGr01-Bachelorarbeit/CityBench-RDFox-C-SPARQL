@@ -10,15 +10,11 @@ import tech.oxfordsemantic.jrdfox.client.*;
 import tech.oxfordsemantic.jrdfox.exceptions.JRDFoxException;
 import tech.oxfordsemantic.jrdfox.exceptions.ResourceInUseException;
 
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
 import java.io.*;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class RDFoxWrapper {
     private static final Logger logger = LoggerFactory.getLogger(RDFoxWrapper.class);
@@ -33,11 +29,22 @@ public class RDFoxWrapper {
 
     private Set<String> staticData;
 
+    private int queryDuplicates;
+
     public RDFoxResultObserver rdFoxResultObserver;
 
     public static String datastoreName = "Datastore";
     private int datastoreCounter = 1;
     public static boolean pause = false;
+
+    private String queryId;
+    private NamedQuery firstQuery;
+
+    private static Map<Statement, Integer> statementsToBeDeleted = new ConcurrentHashMap();
+    private static Map<Statement, Long> statementsToBeAdded = new ConcurrentHashMap();
+
+    private int counterMethodCalled = 0;
+    private int counterUpdateCalled = 0;
 
 
     public static RDFoxWrapper getRDFoxWrapper() {
@@ -51,18 +58,19 @@ public class RDFoxWrapper {
         return rdfoxWrapper;
     }
 
-    public static RDFoxWrapper getRDFoxWrapper(Map<String, String> queryMap, String rdfoxLicenseKey, int queryInterval) throws JRDFoxException {
+    public static RDFoxWrapper getRDFoxWrapper(Map<String, String> queryMap, String rdfoxLicenseKey, int queryInterval, int queryDuplicates) throws JRDFoxException {
         if (rdfoxWrapper == null) {
-            rdfoxWrapper = new RDFoxWrapper(queryMap, rdfoxLicenseKey, queryInterval);
+            rdfoxWrapper = new RDFoxWrapper(queryMap, rdfoxLicenseKey, queryInterval, queryDuplicates);
         }
         return rdfoxWrapper;
     }
 
-    private RDFoxWrapper(Map<String, String> queryMap, String rdfoxLicenseKey, int queryInterval) throws JRDFoxException {
+    private RDFoxWrapper(Map<String, String> queryMap, String rdfoxLicenseKey, int queryInterval, int queryDuplicates) throws JRDFoxException {
         final String serverURL = "rdfox:local";
         final String roleName = "nathan";
         final String password = "password";
 
+        this.queryDuplicates = queryDuplicates;
         //RDFox Connection
         Map<String, String> parametersServer = new HashMap<String, String>();
         parametersServer.put("license-file", rdfoxLicenseKey);
@@ -74,6 +82,9 @@ public class RDFoxWrapper {
         this.staticData = new HashSet<>();
         //Load Queries
         this.queries = initializeQueryMap(queryMap, queryInterval);
+        firstQuery = queries.values().stream().findAny().get();
+        queryId = firstQuery.query;
+        queries.clear();
         try {
             loadStaticData();
         } catch (Exception e) {
@@ -143,6 +154,12 @@ public class RDFoxWrapper {
         }
     }
 
+    public void flushIfNecessary(String uri) {
+        for (String s : queries.keySet()) {
+            queries.get(s).streams.stream().filter(c -> c.uri.equals(uri)).forEach(c -> c.flushIfNecessary());
+        }
+    }
+
 
     public static void maintainStreamDatastore(Queue<ReifiedStatement> currentWindowStatements, List<ReifiedStatement> newTriples, long goOutTime, ServerConnection serverConnection, Prefixes prefixes) throws JRDFoxException {
         //System.out.println("Beginn: " + currentWindowTripels.size());
@@ -164,22 +181,9 @@ public class RDFoxWrapper {
         }
     }
 
-    public static void maintainStreamDatastore(Map<Statement, Long> currentWindowStatements, long goOutTime, ServerConnection serverConnection, Prefixes prefixes) throws JRDFoxException {
-        List<Statement> toBeDeleted = new ArrayList<>();
-        Iterator<Statement> iterator = currentWindowStatements.keySet().iterator();
-        while (iterator.hasNext()) {
-            Statement statement = iterator.next();
-            if(currentWindowStatements.get(statement) < goOutTime) {
-                toBeDeleted.add(statement);
-                iterator.remove();
-            }
-        }
-        try (DataStoreConnection dataStoreConnection = serverConnection.newDataStoreConnection(RDFoxWrapper.datastoreName)) {
-            dataStoreConnection.importData(UpdateType.DELETION, prefixes, statementsToTurtleString(toBeDeleted));
-        }
-        try (DataStoreConnection dataStoreConnection2 = serverConnection.newDataStoreConnection(RDFoxWrapper.datastoreName)) {
-            dataStoreConnection2.importData(UpdateType.ADDITION, prefixes, statementsToTurtleString(currentWindowStatements.keySet()));
-        }
+    public static void maintainStreamDatastore(Map<Statement, Long> currentWindowStatements, Map<Statement, Integer> toBeDeleted) {
+        RDFoxWrapper.statementsToBeAdded.putAll(currentWindowStatements);
+        statementsToBeDeleted.putAll(toBeDeleted);
     }
 
     public static void maintainStreamDatastore(Queue<ReifiedStatement> currentWindowStatements, long goOutTime, ServerConnection serverConnection, Prefixes prefixes) throws JRDFoxException {
@@ -256,30 +260,30 @@ public class RDFoxWrapper {
         OutputStream out = new ByteArrayOutputStream();
 
         model.write(out, "TURTLE");
-        /*try (FileOutputStream outputStream = new FileOutputStream("out.ttxt", true)) {
-            outputStream.write(out.toString().getBytes(StandardCharsets.UTF_8));
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }*/
-        //logger.info(out.toString());
+
         return out.toString();
     }
 
-    public void registerQueries(RDFoxResultObserver rdFoxResultObserver) {
+    public void registerQueries(RDFoxResultObserver rdFoxResultObserver, int i) {
         logger.debug("Number of Queries: " + queries.values().size());
-        for (NamedQuery query : queries.values()) {
-            query.queryAnswerMonitor = rdFoxResultObserver;
-            new Thread(query).start();
-            for (NamedStream stream : query.streams) {
-                startStreamUpdating(stream);
-            }
+        NamedQuery query = new NamedQuery(firstQuery);
+        queries.put(queryId + "-" + i, query);
+
+        query.queryAnswerMonitor = rdFoxResultObserver;
+        new Thread(query).start();
+        for (NamedStream stream : query.streams) {
+            System.out.println("-> " + stream);
+            startStreamUpdating(stream);
+        }
+        try {
+            Thread.sleep(15);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
     }
 
     public void startStreamUpdating(NamedStream stream) {
-        new Thread(stream).start();
+        //new Thread(stream).start();
     }
 
     public Map<String, NamedQuery> getQueries() {
@@ -328,6 +332,26 @@ public class RDFoxWrapper {
             logger.info("Refreshing took: " + (after - before) + " ms");
         } catch (JRDFoxException | IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    public void updateDataStoreBatch() {
+        counterMethodCalled++;
+        if(statementsToBeDeleted.size() != 0 || statementsToBeAdded.size() != 0) {
+            counterUpdateCalled++;
+            try (DataStoreConnection dataStoreConnection = serverConnection.newDataStoreConnection(RDFoxWrapper.datastoreName)) {
+                dataStoreConnection.beginTransaction(TransactionType.READ_WRITE);
+                dataStoreConnection.importData(UpdateType.DELETION, Prefixes.s_emptyPrefixes, statementsToTurtleString(statementsToBeDeleted.keySet()));
+                dataStoreConnection.importData(UpdateType.ADDITION, Prefixes.s_emptyPrefixes, statementsToTurtleString(statementsToBeAdded.keySet()));
+                dataStoreConnection.commitTransaction();
+                statementsToBeAdded.clear();
+                statementsToBeDeleted.clear();
+            } catch (JRDFoxException e) {
+                e.printStackTrace();
+            }
+        }
+        if(counterMethodCalled % 100 == 1) {
+            logger.info("Mathod Called: " + counterMethodCalled + ", " + counterUpdateCalled);
         }
     }
 }

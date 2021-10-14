@@ -9,7 +9,7 @@ import tech.oxfordsemantic.jrdfox.client.ServerConnection;
 import tech.oxfordsemantic.jrdfox.client.StatisticsInfo;
 import tech.oxfordsemantic.jrdfox.exceptions.JRDFoxException;
 
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class NamedStream implements Runnable {
@@ -20,20 +20,20 @@ public class NamedStream implements Runnable {
     public int stepSizeInMilliSeconds;
     public long systemStartTime;
     public ServerConnection serverConnection;
+    private int compactCounter = 0;
+    private long i = 0;
 
-    /*public PriorityBlockingQueue<ReifiedStatement> reifiedStatementsInWindow = new PriorityBlockingQueue<>(100, new Comparator<ReifiedStatement>() {
-        @Override
-        public synchronized int compare(ReifiedStatement reifiedStatement1, ReifiedStatement reifiedStatement2) {
-            if(reifiedStatement1 != null && reifiedStatement2 != null)
-                return (int) ((reifiedStatement1.getProperty(RDFoxWrapper.timestampProperty).getLiteral().getLong()) - reifiedStatement2.getProperty(RDFoxWrapper.timestampProperty).getLiteral().getLong());
-            else if(reifiedStatement1 == null)
-                return (int) (-1 * reifiedStatement2.getProperty(RDFoxWrapper.timestampProperty).getLiteral().getLong());
-            else
-                return (int) reifiedStatement1.getProperty(RDFoxWrapper.timestampProperty).getLiteral().getLong();
-        }
-    });*/
+    public NamedStream(NamedStream stream) {
+        this.stop = stream.stop;
+        this.uri = stream.uri;
+        this.windowSizeInMilliSeconds = stream.windowSizeInMilliSeconds;
+        this.stepSizeInMilliSeconds = stream.stepSizeInMilliSeconds;
+        this.systemStartTime = stream.systemStartTime;
+        this.serverConnection = stream.serverConnection;
+        this.compactCounter = stream.compactCounter;
+    }
 
-    public Map<Statement, Long> statementsInWindow = new ConcurrentHashMap<>();
+    public Map<Statement, Long> statementsInWindow = new HashMap<>();
 
     //public ConcurrentLinkedDeque<RdfQuadruple> rdfQuadruples = new ConcurrentLinkedDeque<>();
 
@@ -46,7 +46,7 @@ public class NamedStream implements Runnable {
 
     @Override
     public void run() {
-        long i = 0;
+
 
         while (!stop) {
 
@@ -54,27 +54,47 @@ public class NamedStream implements Runnable {
             if (i == 1) {
                 systemStartTime = System.currentTimeMillis();
             }
-
             while (systemStartTime + i * stepSizeInMilliSeconds > System.currentTimeMillis()) {
                 waitUntil(systemStartTime + i * stepSizeInMilliSeconds);
             }
-            if(!RDFoxWrapper.pause) {
-                try (DataStoreConnection dataStoreConnection = serverConnection.newDataStoreConnection(RDFoxWrapper.datastoreName)) {
-                    dataStoreConnection.compact();
-                } catch (JRDFoxException e) {
-                    e.printStackTrace();
-                }
-            }
 
-            try {
-                if(!RDFoxWrapper.pause) {
-                    RDFoxWrapper.maintainStreamDatastore(statementsInWindow, systemStartTime + i * stepSizeInMilliSeconds - windowSizeInMilliSeconds, serverConnection, Prefixes.s_emptyPrefixes);
+            flush(i);
+        }
+    }
+
+    public void flushIfNecessary() {
+        if (i == 0) {
+            systemStartTime = System.currentTimeMillis();
+            i++;
+        }
+        if(systemStartTime + i * stepSizeInMilliSeconds < System.currentTimeMillis()) {
+            i++;
+            flush(i);
+        }
+    }
+
+    private void flush(long i) {
+
+        //if(!RDFoxWrapper.pause) {
+            try (DataStoreConnection dataStoreConnection = serverConnection.newDataStoreConnection(RDFoxWrapper.datastoreName)) {
+                Map<Statement, Integer> toBeDeleted = new HashMap();
+                Iterator<Statement> iterator = statementsInWindow.keySet().iterator();
+                while (iterator.hasNext()) {
+                    Statement statement = iterator.next();
+                    if(statementsInWindow.get(statement) < systemStartTime + i * stepSizeInMilliSeconds - windowSizeInMilliSeconds) {
+                        toBeDeleted.put(statement, 0);
+                        iterator.remove();
+                    }
                 }
-            }
-            catch (Exception e) {
+                RDFoxWrapper.maintainStreamDatastore(statementsInWindow, toBeDeleted);
+                if(compactCounter++ == 100) {
+                    dataStoreConnection.compact();
+                    compactCounter = 0;
+                }
+            } catch (JRDFoxException e) {
                 e.printStackTrace();
             }
-        }
+        //}
     }
 
     public static void waitUntil(long targetTime) {
@@ -93,6 +113,7 @@ public class NamedStream implements Runnable {
         //r.addLiteral(RDFoxWrapper.timestampProperty, System.currentTimeMillis());
         //reifiedStatementsInWindow.add(r);
         statementsInWindow.put(statement, System.currentTimeMillis());
+
     }
 
     public void stop() {

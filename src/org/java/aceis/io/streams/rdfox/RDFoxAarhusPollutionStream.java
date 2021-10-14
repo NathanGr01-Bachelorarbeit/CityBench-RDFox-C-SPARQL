@@ -96,6 +96,7 @@ public class RDFoxAarhusPollutionStream extends RDFoxSensorStream implements Run
 					}
 					// messageByte += st.toString().getBytes().length;
 				}
+				RDFoxWrapper.getRDFoxWrapper().flushIfNecessary(getIRI());
 				CityBench.pm.addNumberOfStreamedStatements(stmts.size());
 				try {
 					if (this.getRate() == 1.0)

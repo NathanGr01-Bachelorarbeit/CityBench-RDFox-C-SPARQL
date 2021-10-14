@@ -11,6 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import tech.oxfordsemantic.jrdfox.client.QueryAnswerMonitor;
 import tech.oxfordsemantic.jrdfox.exceptions.JRDFoxException;
+import tech.oxfordsemantic.jrdfox.logic.expression.IRI;
 import tech.oxfordsemantic.jrdfox.logic.expression.Resource;
 
 import java.util.*;
@@ -33,12 +34,12 @@ public class RDFoxResultObserver extends RDFStreamFormatter implements QueryAnsw
 	}
 
 	@Override
-	public synchronized void processQueryAnswer(List<Resource> list, long l) throws JRDFoxException {
+	public void processQueryAnswer(List<Resource> list, long l) throws JRDFoxException {
 		Map<String, Long> latencies = new HashMap<String, Long>();
 		int cnt = 0;
-		String result = Arrays.toString(list.toArray()).replaceAll("\t", " ").trim();
+		//String result = Arrays.toString(list.toArray()).replaceAll("\t", " ").trim();
 		//logger.info(result);
-		if (! capturedResults.contains(result)) {
+		//if (! capturedResults.contains(result)) {
 			// logger.info(this.getIRI() + " Results: " + result);
 
 			//capturedResults.add(result);
@@ -48,7 +49,8 @@ public class RDFoxResultObserver extends RDFStreamFormatter implements QueryAnsw
 				// String obid = t.get(i);
 				String obid = "";
 				try {
-					obid = list.get(i).toString().substring(1, list.get(i).toString().length() - 1);
+					IRI iri = (IRI) list.get(i);
+					obid = iri.getIRI();
 				}
 				catch (ArrayIndexOutOfBoundsException e) {
 					e.printStackTrace();
@@ -75,7 +77,7 @@ public class RDFoxResultObserver extends RDFStreamFormatter implements QueryAnsw
 
 				}
 			}
-		}
+		//}
 		if (cnt > 0)
 			CityBench.pm.addResults(getIRI(), latencies, cnt, capturedObIds.size());
 
@@ -94,7 +96,7 @@ public class RDFoxResultObserver extends RDFStreamFormatter implements QueryAnsw
 			indexes.add(0);
 			indexes.add(1);
 		}
-		else if(queryId.equals("Q1")) {
+		else if(queryId.equals("Q1") || queryId.equals("Q1_N3")) {
 			indexes.add(0);
 			indexes.add(1);
 		}

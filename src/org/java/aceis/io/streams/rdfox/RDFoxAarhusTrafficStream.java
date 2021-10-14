@@ -284,6 +284,7 @@ public class RDFoxAarhusTrafficStream extends RDFoxSensorStream implements Runna
 					//logger.debug(this.getIRI() + " Streaming: " + q.toString());
 					messageByte += st.toString().getBytes().length;
 				}
+				RDFoxWrapper.getRDFoxWrapper().flushIfNecessary(getIRI());
 				CityBench.pm.addNumberOfStreamedStatements(stmts.size());
 
 				this.messageCnt += 1;

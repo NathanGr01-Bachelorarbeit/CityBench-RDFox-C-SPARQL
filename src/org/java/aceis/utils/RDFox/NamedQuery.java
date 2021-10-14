@@ -6,6 +6,7 @@ import tech.oxfordsemantic.jrdfox.Prefixes;
 import tech.oxfordsemantic.jrdfox.client.DataStoreConnection;
 import tech.oxfordsemantic.jrdfox.client.QueryAnswerMonitor;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -18,6 +19,20 @@ public class NamedQuery implements Runnable {
     public int answerFrequencyInMilliSeconds;
     public QueryAnswerMonitor queryAnswerMonitor;
     public boolean stop = false;
+
+
+
+    public NamedQuery (NamedQuery namedQuery) {
+        this.query = namedQuery.query;
+        this.staticStreams = new ArrayList<>(namedQuery.staticStreams);
+        this.streams = new ArrayList<>();
+        for(NamedStream stream : namedQuery.streams) {
+            streams.add(new NamedStream(stream));
+        }
+        this.answerFrequencyInMilliSeconds = namedQuery.answerFrequencyInMilliSeconds;
+        this.queryAnswerMonitor = null;
+        this.stop = namedQuery.stop;
+    }
 
     public NamedQuery(String query, List<String> staticStream, List<NamedStream> streams, int queryInterval) {
         this.query = query;
