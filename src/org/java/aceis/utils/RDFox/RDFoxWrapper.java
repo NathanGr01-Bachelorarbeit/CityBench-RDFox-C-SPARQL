@@ -46,6 +46,9 @@ public class RDFoxWrapper {
     private int counterMethodCalled = 0;
     private int counterUpdateCalled = 0;
 
+    private int counterAddition = 0;
+    private int counterDeletion = 0;
+
 
     public static RDFoxWrapper getRDFoxWrapper() {
         if (rdfoxWrapper == null) {
@@ -349,10 +352,20 @@ public class RDFoxWrapper {
             } catch (JRDFoxException e) {
                 e.printStackTrace();
             }
+//            if(counterDeletion < 5) {
+//                try (OutputStream outDel = new FileOutputStream("tmpDeletion" + counterDeletion++); OutputStream outAdd = new FileOutputStream("tmpAddition" + counterAddition++);) {
+//                    outAdd.write(statementsToTurtleString(statementsToBeAdded.keySet()).getBytes(StandardCharsets.UTF_8));
+//                    outDel.write(statementsToTurtleString(statementsToBeDeleted.keySet()).getBytes(StandardCharsets.UTF_8));
+//                } catch (FileNotFoundException e) {
+//                    e.printStackTrace();
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                }
+//            }
         }
-        if(counterMethodCalled % 100 == 1) {
+        /*if(counterMethodCalled % 100 == 1) {
             logger.info("Mathod Called: " + counterMethodCalled + ", " + counterUpdateCalled);
-        }
+        }*/
     }
 }
 

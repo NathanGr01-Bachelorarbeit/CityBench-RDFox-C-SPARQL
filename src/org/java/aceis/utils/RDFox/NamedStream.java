@@ -74,16 +74,19 @@ public class NamedStream implements Runnable {
     }
 
     private void flush(long i) {
-
         //if(!RDFoxWrapper.pause) {
             try (DataStoreConnection dataStoreConnection = serverConnection.newDataStoreConnection(RDFoxWrapper.datastoreName)) {
                 Map<Statement, Integer> toBeDeleted = new HashMap();
+                Map<Statement, Long> toBeAdded = new HashMap<>();
                 Iterator<Statement> iterator = statementsInWindow.keySet().iterator();
                 while (iterator.hasNext()) {
                     Statement statement = iterator.next();
-                    if(statementsInWindow.get(statement) < systemStartTime + i * stepSizeInMilliSeconds - windowSizeInMilliSeconds) {
+                    if (statementsInWindow.get(statement) < systemStartTime + i * stepSizeInMilliSeconds - windowSizeInMilliSeconds) {
                         toBeDeleted.put(statement, 0);
                         iterator.remove();
+                    }
+                    else if (statementsInWindow.get(statement) > systemStartTime + (i - 1) * stepSizeInMilliSeconds) {
+                        toBeAdded.put(statement, 0L);
                     }
                 }
                 RDFoxWrapper.maintainStreamDatastore(statementsInWindow, toBeDeleted);

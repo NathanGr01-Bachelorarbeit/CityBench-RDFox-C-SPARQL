@@ -20,9 +20,6 @@
 	<lib name="jena-core-4.0.0.jar" scope="COMPILE">
 		<relative-module-cls project-related="jar://$PROJECT_DIR$/lib/jena-core-4.0.0.jar!/"/>
 	</lib>
-	<lib name="JRDFox.jar" scope="COMPILE">
-		<relative-module-cls project-related="jar://$PROJECT_DIR$/lib/JRDFox.jar!/"/>
-	</lib>
 	<lib name="opencsv-2.2.jar" scope="COMPILE">
 		<relative-module-cls project-related="jar://$PROJECT_DIR$/lib/opencsv-2.2.jar!/"/>
 	</lib>
@@ -103,5 +100,8 @@
 	</lib>
 	<lib name="antlr-runtime-3.2.jar" scope="COMPILE">
 		<relative-module-cls project-related="jar://$PROJECT_DIR$/lib/CQELS-lib/antlr-runtime-3.2.jar!/"/>
+	</lib>
+	<lib name="JRDFox.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/lib/JRDFox.jar!/"/>
 	</lib>
 </component>

@@ -29,7 +29,7 @@ public class PerformanceMonitor implements Runnable {
 	private int duplicates;
 	private String resultName;
 	private long start = 0;
-	private ConcurrentHashMap<String, List<Long>> latencyMap = new ConcurrentHashMap<String, List<Long>>();
+	private ConcurrentHashMap<String, Set<Long>> latencyMap = new ConcurrentHashMap<>();
 	private List<Double> memoryList = new ArrayList<Double>();;
 	private ConcurrentHashMap<String, Long> resultCntMap = new ConcurrentHashMap<String, Long>();
 	private CsvWriter cw;
@@ -60,7 +60,7 @@ public class PerformanceMonitor implements Runnable {
 		Collections.sort(qList);
 
 		for (String qid : qList) {
-			latencyMap.put(qid, new ArrayList<Long>());
+			latencyMap.put(qid, Collections.newSetFromMap(new ConcurrentHashMap<>()));
 			resultCntMap.put(qid, (long) 0);
 			cw.write("latency-" + qid);
 		}
@@ -122,7 +122,7 @@ public class PerformanceMonitor implements Runnable {
 
 					// empty memory and latency lists
 					this.memoryList.clear();
-					for (Entry<String, List<Long>> en : this.latencyMap.entrySet()) {
+					for (Entry<String, Set<Long>> en : this.latencyMap.entrySet()) {
 						en.getValue().clear();
 					}
 				}

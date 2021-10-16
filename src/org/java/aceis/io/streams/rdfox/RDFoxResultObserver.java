@@ -1,8 +1,5 @@
 package org.java.aceis.io.streams.rdfox;
 
-//import org.insight_centre.aceis.engine.ACEISEngine;
-
-//import org.apache.log4j.Logger;
 
 import eu.larkc.csparql.engine.RDFStreamFormatter;
 import org.java.aceis.observations.SensorObservation;
@@ -21,7 +18,10 @@ public class RDFoxResultObserver extends RDFStreamFormatter implements QueryAnsw
 	private static final Logger logger = LoggerFactory.getLogger(RDFoxResultObserver.class);
 	public static Set<String> capturedObIds = Collections.newSetFromMap(new ConcurrentHashMap<String, Boolean>());
 	public static Set<String> capturedResults = Collections.newSetFromMap(new ConcurrentHashMap<String, Boolean>());
+	public Set<Resource> localSet = new HashSet();
+	private int cnt = 0;
 	List<Integer> indexes = new ArrayList<Integer>();
+	private boolean optimizedForHugeResults = false;
 
 	public RDFoxResultObserver(String iri, String queryId) {
 		super(iri);
@@ -31,15 +31,29 @@ public class RDFoxResultObserver extends RDFStreamFormatter implements QueryAnsw
 	@Override
 	public void queryAnswersStarted(String[] strings) throws JRDFoxException {
 		//logger.info("Hier sind wir angekommen1.");
+		if(optimizedForHugeResults) {
+			this.localSet.clear();
+			this.cnt = 0;
+		}
 	}
 
 	@Override
 	public void processQueryAnswer(List<Resource> list, long l) throws JRDFoxException {
-		Map<String, Long> latencies = new HashMap<String, Long>();
-		int cnt = 0;
-		//String result = Arrays.toString(list.toArray()).replaceAll("\t", " ").trim();
-		//logger.info(result);
-		//if (! capturedResults.contains(result)) {
+		if(optimizedForHugeResults) {
+			++this.cnt;
+			Iterator var4 = this.indexes.iterator();
+
+			while (var4.hasNext()) {
+				int i = (Integer) var4.next();
+				this.localSet.add((Resource) list.get(i));
+			}
+		}
+		else {
+			Map<String, Long> latencies = new HashMap<String, Long>();
+			int cnt = 0;
+			//String result = Arrays.toString(list.toArray()).replaceAll("\t", " ").trim();
+			//logger.info(result);
+			//if (! capturedResults.contains(result)) {
 			// logger.info(this.getIRI() + " Results: " + result);
 
 			//capturedResults.add(result);
@@ -51,23 +65,20 @@ public class RDFoxResultObserver extends RDFStreamFormatter implements QueryAnsw
 				try {
 					IRI iri = (IRI) list.get(i);
 					obid = iri.getIRI();
-				}
-				catch (ArrayIndexOutOfBoundsException e) {
+				} catch (ArrayIndexOutOfBoundsException e) {
 					e.printStackTrace();
 				}
 				//logger.info(obid);
 				if (obid == null)
 					logger.error("NULL ob Id detected.");
-				if (!capturedObIds.contains(obid)) {
-					capturedObIds.add(obid);
+				if (capturedObIds.add(obid)) {
 					// uncomment for testing the completeness, i.e., showing how many observations are captured
 					//logger.info("RDFox result arrived " + capturedResults.size() + ", obs size: " + capturedObIds.size() + ", result: " + result);
 					try {
 						SensorObservation so = CityBench.obMap.get(obid);
 						if (so == null) {
 							logger.error("Cannot find observation for: " + obid);
-						}
-						else {
+						} else {
 							long creationTime = so.getSysTimestamp().getTime();
 							latencies.put(obid, (System.currentTimeMillis() - creationTime));
 						}
@@ -77,13 +88,39 @@ public class RDFoxResultObserver extends RDFStreamFormatter implements QueryAnsw
 
 				}
 			}
-		//}
-		if (cnt > 0)
-			CityBench.pm.addResults(getIRI(), latencies, cnt, capturedObIds.size());
-
+			//}
+			if (cnt > 0)
+				CityBench.pm.addResults(getIRI(), latencies, cnt, capturedObIds.size());
+		}
 	}
 	@Override
 	public void queryAnswersFinished() throws JRDFoxException {
+		if (optimizedForHugeResults) {
+			Map<String, Long> latencies = new HashMap();
+
+			String obid;
+			for(Iterator var2 = this.localSet.iterator(); var2.hasNext(); capturedObIds.add(obid)) {
+				Resource resource = (Resource)var2.next();
+				IRI iri = (IRI)resource;
+				obid = iri.getIRI();
+
+				try {
+					SensorObservation so = (SensorObservation)CityBench.obMap.get(obid);
+					if (so == null) {
+						logger.error("Cannot find observation for: " + obid);
+					} else {
+						long creationTime = so.getSysTimestamp().getTime();
+						latencies.put(obid, System.currentTimeMillis() - creationTime);
+					}
+				} catch (Exception var9) {
+					var9.printStackTrace();
+				}
+			}
+
+			if (this.cnt > 0) {
+				CityBench.pm.addResults(this.getIRI(), latencies, this.cnt, (long)capturedObIds.size());
+			}
+		}
 		//logger.info("Hier sind wir angekommen3.");
 	}
 

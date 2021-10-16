@@ -10,7 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4049ee82-eeca-41be-8dd8-a38ff5b62afc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/org/java/aceis/utils/RDFox/DatastoreBatchUpdater.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CQELS_DB/cache/00000000.jdb" beforeDir="false" afterPath="$PROJECT_DIR$/CQELS_DB/cache/00000000.jdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CQELS_DB/datasets/GOSP.dat" beforeDir="false" afterPath="$PROJECT_DIR$/CQELS_DB/datasets/GOSP.dat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CQELS_DB/datasets/GOSP.idn" beforeDir="false" afterPath="$PROJECT_DIR$/CQELS_DB/datasets/GOSP.idn" afterDir="false" />
@@ -33,23 +33,44 @@
       <change beforePath="$PROJECT_DIR$/CQELS_DB/datasets/node2id.dat" beforeDir="false" afterPath="$PROJECT_DIR$/CQELS_DB/datasets/node2id.dat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CQELS_DB/datasets/node2id.idn" beforeDir="false" afterPath="$PROJECT_DIR$/CQELS_DB/datasets/node2id.idn" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CQELS_DB/datasets/nodes.dat" beforeDir="false" afterPath="$PROJECT_DIR$/CQELS_DB/datasets/nodes.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ISWC2015-CityBench.eml" beforeDir="false" afterPath="$PROJECT_DIR$/ISWC2015-CityBench.eml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment_scripts/CSPARQL/CSPARQL_Q10_MulStr.sh" beforeDir="false" afterPath="$PROJECT_DIR$/experiment_scripts/CSPARQL/CSPARQL_Q10_MulStr.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/experiment_scripts/RDFox/RDFox_Q10_MulStr_15ms.sh" beforeDir="false" afterPath="$PROJECT_DIR$/experiment_scripts/RDFox/RDFox_Q10_MulStr_15ms.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/experiment_scripts/RDFox/RDFox_Q10_MulStr_650ms.sh" beforeDir="false" afterPath="$PROJECT_DIR$/experiment_scripts/RDFox/RDFox_Q10_MulStr_650ms.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/experiment_scripts/RDFox/RDFox_Q1_ConQue_15ms.sh" beforeDir="false" afterPath="$PROJECT_DIR$/experiment_scripts/RDFox/RDFox_Q1_ConQue_15ms.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/experiment_scripts/RDFox/RDFox_Q1_ConQue_650ms.sh" beforeDir="false" afterPath="$PROJECT_DIR$/experiment_scripts/RDFox/RDFox_Q1_ConQue_650ms.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/experiment_scripts/RDFox/RDFox_Q5_ConQue_15ms.sh" beforeDir="false" afterPath="$PROJECT_DIR$/experiment_scripts/RDFox/RDFox_Q5_ConQue_15ms.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/experiment_scripts/RDFox/RDFox_Q5_ConQue_650ms.sh" beforeDir="false" afterPath="$PROJECT_DIR$/experiment_scripts/RDFox/RDFox_Q5_ConQue_650ms.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/result_log/03d888bb-b3cf-4f85-83dc-ff24a07239d3 r=1.0,f=2.0,dup=1,e=rdfox,q=[Q10_8.txt].csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/result_log/0919783c-020b-4a23-8bd7-f13a99e8f609 r=1.0,f=1.0,dup=50,e=rdfox,q=[Q1.txt].csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/result_log/14bd048e-5078-4934-9f33-7ac0817bc6ce r=1.0,f=2.0,dup=1,e=rdfox,q=[Q10_8.txt].csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/result_log/31f29224-05ee-4d5d-bfa2-f8041c78c777 r=1.0,f=1.0,dup=50,e=rdfox,q=[Q1.txt].csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/result_log/385c3f12-58f5-4d69-8ea0-c45863f4e623 r=1.0,f=1.0,dup=50,e=rdfox,q=[Q1.txt].csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/result_log/5cb554a4-010c-413e-a3eb-9d5872a19e66 r=1.0,f=1.0,dup=50,e=rdfox,q=[Q1.txt].csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/result_log/6c2102ed-cfc1-4d28-85be-c0b9fca4db69 r=1.0,f=1.0,dup=50,e=rdfox,q=[Q1.txt].csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/result_log/940db8f5-9bd3-43cd-adca-1ff39c6ef6da r=1.0,f=2.0,dup=1,e=rdfox,q=[Q10_8.txt].csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/result_log/a28879df-6779-4077-8254-443828e3ab53 r=1.0,f=2.0,dup=1,e=rdfox,q=[Q10_8.txt].csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/result_log/ac3e2315-1111-4ee0-ab7f-1ae347ba8d24 r=1.0,f=2.0,dup=1,e=rdfox,q=[Q10_8.txt].csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/result_log/afb3f195-475b-4974-97c0-1a7772bf5aec r=1.0,f=2.0,dup=1,e=rdfox,q=[Q10_8.txt].csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/result_log/b2fcfd7c-1d9e-4037-8ee3-8abd5ba4492e r=1.0,f=1.0,dup=50,e=rdfox,q=[Q1.txt].csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/result_log/bb4b6567-4eef-4cd2-9cab-6b5bccd14559 r=1.0,f=2.0,dup=1,e=rdfox,q=[Q10_8.txt].csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/result_log/ca332e35-0d91-4b78-83c6-62b2cf79b953 r=1.0,f=2.0,dup=1,e=rdfox,q=[Q10_8.txt].csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/result_log/d76e8ba7-c8c4-4f92-be8d-7f8f2ff0d083 r=1.0,f=2.0,dup=1,e=rdfox,q=[Q10_8.txt].csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/result_log/d91a93a2-9a58-48f4-aabe-b8ac894c9e7b r=1.0,f=2.0,dup=1,e=rdfox,q=[Q10_8.txt].csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/result_log/e916f276-a6a9-46ea-9cda-bd81e68f7c3c r=1.0,f=2.0,dup=1,e=rdfox,q=[Q10_8.txt].csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/result_log/ed968e30-bb98-4cb6-9bfe-4fae663e72a5 r=1.0,f=1.0,dup=1,e=rdfox,q=[Q10_8.txt].csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/result_log/ef8063d9-0ba0-4bac-9380-0a33f118d8ae r=1.0,f=2.0,dup=1,e=rdfox,q=[Q10_8.txt].csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/result_log/f3dbc04d-fe56-45b5-a007-7c2d502a1ecb r=1.0,f=2.0,dup=1,e=rdfox,q=[Q10_8.txt].csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/result_log/fbaae29c-abd9-466a-acc9-e72a7bd250cd r=1.0,f=2.0,dup=1,e=rdfox,q=[Q10_8.txt].csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/java/aceis/io/streams/csparql/CSPARQLResultObserver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/java/aceis/io/streams/csparql/CSPARQLResultObserver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/java/aceis/io/streams/rdfox/RDFoxAarhusParkingStream.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/java/aceis/io/streams/rdfox/RDFoxAarhusParkingStream.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/java/aceis/io/streams/rdfox/RDFoxAarhusPollutionStream.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/java/aceis/io/streams/rdfox/RDFoxAarhusPollutionStream.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/java/aceis/io/streams/rdfox/RDFoxAarhusTrafficStream.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/java/aceis/io/streams/rdfox/RDFoxAarhusTrafficStream.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/java/aceis/io/streams/rdfox/RDFoxAarhusWeatherStream.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/java/aceis/io/streams/rdfox/RDFoxAarhusWeatherStream.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/java/aceis/io/streams/rdfox/RDFoxLocationStream.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/java/aceis/io/streams/rdfox/RDFoxLocationStream.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/java/aceis/io/streams/rdfox/RDFoxResultObserver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/java/aceis/io/streams/rdfox/RDFoxResultObserver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/java/aceis/utils/RDFox/NamedQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/java/aceis/utils/RDFox/NamedQuery.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/java/aceis/utils/RDFox/NamedStream.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/java/aceis/utils/RDFox/NamedStream.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/java/aceis/utils/RDFox/RDFoxWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/java/aceis/utils/RDFox/RDFoxWrapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/java/aceis/utils/test/PerformanceMonitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/java/aceis/utils/test/PerformanceMonitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/java/citybench/main/CityBench.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/java/citybench/main/CityBench.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/start.sh" beforeDir="false" afterPath="$PROJECT_DIR$/start.sh" afterDir="false" />
     </list>
     <list id="3111f594-4d01-457d-a21a-5e2bb33f89de" name="Changes by nikol" comment="" />
@@ -92,9 +113,9 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/rdfox_query" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../BenchmarkTrial/CityBench-RDFox-C-SPARQL" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
@@ -114,7 +135,7 @@
     <configuration name="CityBench" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.java.citybench.main.CityBench" />
       <module name="ISWC2015-CityBench" />
-      <option name="PROGRAM_PARAMETERS" value="engine=rdfox startDate=2014-08-11T11:00:00 endDate=2014-08-31T11:00:00 query=Q10_8.txt duration=120s queryDuplicates=1 frequency=2 rdfoxLicense=./RDFox.lic queryInterval=15" />
+      <option name="PROGRAM_PARAMETERS" value="engine=rdfox startDate=2014-08-11T11:00:00 endDate=2014-08-31T11:00:00 query=Q1.txt duration=50s queryDuplicates=1 frequency=100 rdfoxLicense=./RDFox.lic queryInterval=15" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="org.java.citybench.main.*" />
@@ -263,7 +284,15 @@
       <workItem from="1634107737210" duration="19192000" />
       <workItem from="1634138679593" duration="2650000" />
       <workItem from="1634148130406" duration="376000" />
-      <workItem from="1634199379189" duration="9658000" />
+      <workItem from="1634199379189" duration="13523000" />
+      <workItem from="1634221979427" duration="25000" />
+      <workItem from="1634222334242" duration="5434000" />
+      <workItem from="1634238667708" duration="8512000" />
+      <workItem from="1634277919981" duration="264000" />
+      <workItem from="1634303202891" duration="1328000" />
+      <workItem from="1634315171765" duration="1380000" />
+      <workItem from="1634378106960" duration="605000" />
+      <workItem from="1634403452044" duration="646000" />
     </task>
     <task id="LOCAL-00001" summary="Added new Files for Yasper and RDFox. Still WiP">
       <created>1621240027699</created>
@@ -365,14 +394,6 @@
           <properties class="java.lang.NullPointerException" package="java.lang" />
           <option name="timeStamp" value="1" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/org/java/aceis/utils/RDFox/NamedStream.java</url>
-          <line>64</line>
-          <properties class="org.java.aceis.utils.RDFox.NamedStream" method="flushIfNecessary">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
